@@ -1,4 +1,4 @@
-package com.example.demo;
+package oracle;
 
 public class Employees {
     private int employee_id;
