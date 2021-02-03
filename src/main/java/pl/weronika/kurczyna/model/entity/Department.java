@@ -1,6 +1,7 @@
 package pl.weronika.kurczyna.model.entity;
 
 import org.springframework.lang.Nullable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -13,11 +14,9 @@ public class Department {
     private String departmentName;
     @ManyToOne
     @Nullable
-    //@ForeignKey(name="dept_mgr_fk")
     private Employee managerID;
     @ManyToOne
     @Nullable
-    //@ForeignKey(name="dept_loc_fk")
     private Location locationID;
 
     public Department() {

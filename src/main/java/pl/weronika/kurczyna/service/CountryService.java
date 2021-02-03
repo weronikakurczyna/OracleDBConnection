@@ -21,7 +21,7 @@ public class CountryService implements CountryServiceInterface {
     public List<CountryDto> getCountries() {
         List<Country> countries = countryRepository.findAll();
         return countries.stream()
-                .map(country -> convertToDto(country))
+                .map(Country -> convertToDto(Country))
                 .collect(Collectors.toList());
     }
 

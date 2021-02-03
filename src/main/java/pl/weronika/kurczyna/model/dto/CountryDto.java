@@ -1,15 +1,15 @@
 package pl.weronika.kurczyna.model.dto;
 
 public class CountryDto {
-    private Integer countryID;
+    private String countryID;
     private String countryName;
     private RegionDto regionID;
 
-    public Integer getCountryID() {
+    public String getCountryID() {
         return countryID;
     }
 
-    public void setCountryID(Integer countryID) {
+    public void setCountryID(String countryID) {
         this.countryID = countryID;
     }
 

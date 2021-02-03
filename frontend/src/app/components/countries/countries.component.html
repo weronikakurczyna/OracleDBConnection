@@ -1,23 +1,17 @@
-<div class="content">
   <div class="container">
-    <h3>List of countries</h3>
-    <div class="row" *ngFor="let country of countries ">
-      <div *ngIf="country" class="col-md-12">
-        <div class="list-group list">
-          <a class="list-group-item">
-            <p class="list-group-item-text">
-              <b>ID:</b> {{country.id}}
+    <h4>List of countries</h4>
+    <div *ngFor="let Country of countries ">
+      <div class="card" *ngIf="Country">
+            <p>
+              <b>ID:</b> {{Country.countryID}}
             </p>
-            <p class="list-group-item-text">
-              <b>Country name: </b> {{country.countryName }}
+            <p>
+              <b>Country name: </b> {{Country.countryName }}
             </p>
-            <p class="list-group-item-text">
-              <b>Region name: </b> {{country.region.regionName }}
+            <p >
+              <b>Region name: </b> {{Country.regionID.regionName }}
             </p>
-            <div class="clearfix"></div>
-          </a>
-        </div>
+            <div></div>
       </div>
     </div>
   </div>
-</div>

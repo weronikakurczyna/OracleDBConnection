@@ -7,6 +7,7 @@ import {Country} from "./country";
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
+
 export class CountriesComponent implements OnInit {
   private countries: Country[];
   private downloadedCountries: any;
@@ -25,5 +26,4 @@ export class CountriesComponent implements OnInit {
       }
     });
   }
-
 }

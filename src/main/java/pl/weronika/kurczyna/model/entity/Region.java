@@ -4,13 +4,17 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity (name = "regions")
+@Table(name = "REGIONS")
 public class Region {
-    @javax.persistence.Id
-    @Column(unique = true)
+    @Id
+    @Column(unique = true, name = "REGION_ID")
     private Integer regionID;
     @Nullable
+    @Column(name = "REGION_NAME")
     private String regionName;
 
     public Region() {
