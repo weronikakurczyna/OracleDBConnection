@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +11,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { RegionsComponent } from './components/regions/regions.component';
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { RegionsComponent } from './components/regions/regions.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: "countries", component: CountriesComponent},
       {path: "departments", component: DepartmentsComponent},
