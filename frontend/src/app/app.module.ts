@@ -1,0 +1,41 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {RouterModule} from "@angular/router";
+import { CountriesComponent } from './components/countries/countries.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { JobsComponent } from './components/jobs/jobs.component';
+import { LocationsComponent } from './components/locations/locations.component';
+import { RegionsComponent } from './components/regions/regions.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    CountriesComponent,
+    DepartmentsComponent,
+    EmployeesComponent,
+    JobsComponent,
+    LocationsComponent,
+    RegionsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    RouterModule.forRoot([
+      {path: "countries", component: CountriesComponent},
+      {path: "departments", component: DepartmentsComponent},
+      {path: "employees", component: EmployeesComponent},
+      {path: "jobs", component: JobsComponent},
+      {path: "locations", component: LocationsComponent},
+      {path: "regions", component: RegionsComponent}
+    ]),
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
