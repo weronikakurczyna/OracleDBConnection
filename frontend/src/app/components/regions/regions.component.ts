@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegionsService} from "../../services/regions.service";
 import {Region} from "./region";
 
@@ -9,16 +9,16 @@ import {Region} from "./region";
 })
 export class RegionsComponent implements OnInit {
   private regions: Region[];
-  private downloadedRegions: any;
 
-  constructor(private regionsService: RegionsService) { }
+  constructor(private regionsService: RegionsService) {
+  }
 
   ngOnInit(): void {
     this.showInfo();
   }
 
   private showInfo() {
-    this.downloadedRegions = this.regionsService.getRegions().subscribe({
+    this.regionsService.getRegions().subscribe({
       next: data => {
         this.regions = data;
       }

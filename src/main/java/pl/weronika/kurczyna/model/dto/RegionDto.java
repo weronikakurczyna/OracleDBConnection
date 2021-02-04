@@ -1,14 +1,14 @@
 package pl.weronika.kurczyna.model.dto;
 
 public class RegionDto {
-    private Integer regionID;
+    private String regionID;
     private String regionName;
 
-    public Integer getRegionID() {
+    public String getRegionID() {
         return regionID;
     }
 
-    public void setRegionID(Integer regionID) {
+    public void setRegionID(String regionID) {
         this.regionID = regionID;
     }
 

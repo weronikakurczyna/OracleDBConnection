@@ -1,16 +1,16 @@
 package pl.weronika.kurczyna.model.dto;
 
 public class JobDto {
-    private Integer jobID;
+    private String jobID;
     private String jobTitle;
     private Integer minSalary;
     private Integer maxSalary;
 
-    public Integer getJobID() {
+    public String getJobID() {
         return jobID;
     }
 
-    public void setJobID(Integer jobID) {
+    public void setJobID(String jobID) {
         this.jobID = jobID;
     }
 

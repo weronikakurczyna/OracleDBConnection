@@ -1,16 +1,16 @@
 
-export interface RegionAttrs {
-  id: number;
+export interface RegionInterface {
+  regionID: number;
   regionName: string;
 }
 
 export class Region {
-  constructor(attrs: Partial<RegionAttrs> = {}) {
-    this.id = attrs.id;
-    this.regionName = attrs.regionName;
+  constructor(fields: Partial<RegionInterface>) {
+    this.regionID = fields.regionID;
+    this.regionName = fields.regionName;
   }
 
-  id: number;
+  regionID: number;
   regionName: string;
 
 }

@@ -1,1 +1,14 @@
-<p>regions works!</p>
+<div class="container">
+  <h4>Regions</h4>
+  <div *ngFor="let region of regions ">
+    <div class="card" *ngIf="region">
+      <p>
+        <b>ID:</b> {{region.regionID}}
+      </p>
+      <p>
+        <b>Country name: </b> {{region.regionName }}
+      </p>
+      <div></div>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,17 @@
-  <div class="container">
-    <h4>List of countries</h4>
-    <div *ngFor="let Country of countries ">
-      <div class="card" *ngIf="Country">
-            <p>
-              <b>ID:</b> {{Country.countryID}}
-            </p>
-            <p>
-              <b>Country name: </b> {{Country.countryName }}
-            </p>
-            <p >
-              <b>Region name: </b> {{Country.regionID.regionName }}
-            </p>
-            <div></div>
-      </div>
+<div class="container">
+  <h4>Countries</h4>
+  <div *ngFor="let country of countries ">
+    <div class="card" *ngIf="country">
+      <p>
+        <b>ID:</b> {{country.countryID}}
+      </p>
+      <p>
+        <b>Country name: </b> {{country.countryName }}
+      </p>
+      <p *ngIf="country.regionID">
+        <b>Region name: </b> {{country.regionID.regionName }}
+      </p>
+      <div></div>
     </div>
   </div>
+</div>

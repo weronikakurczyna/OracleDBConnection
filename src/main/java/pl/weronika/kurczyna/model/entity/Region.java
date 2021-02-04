@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Region {
     @Id
     @Column(unique = true, name = "REGION_ID")
-    private Integer regionID;
+    private String regionID;
     @Nullable
     @Column(name = "REGION_NAME")
     private String regionName;
@@ -20,11 +20,11 @@ public class Region {
     public Region() {
     }
 
-    public Integer getRegionID() {
+    public String getRegionID() {
         return regionID;
     }
 
-    public void setRegionID(Integer regionID) {
+    public void setRegionID(String regionID) {
         this.regionID = regionID;
     }
 

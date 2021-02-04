@@ -2,36 +2,48 @@ package pl.weronika.kurczyna.model.entity;
 
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity(name = "locations")
+@Table(name = "LOCATIONS")
 public class Location {
-    @javax.persistence.Id
-    @Column(unique = true)
-    private Integer locationID;
+    @Id
+    @Column(unique = true, name = "LOCATION_ID")
+    private String locationID;
     @Nullable
+    @Column(name = "STREET_ADDRESS")
     private String streetAddress;
     @Nullable
+    @Column(name = "POSTAL_CODE")
     private String postalCode;
+    @Column(name = "CITY")
     private String city;
     @Nullable
+    @Column(name = "STATE_PROVINCE")
     private String stateProvince;
+    @JoinColumn(name = "COUNTRY_ID")
     @Nullable
     @ManyToOne(fetch = FetchType.EAGER)
-    private Country country;
+    private Country countryID;
 
-    private Location() {
+    public Location() {
     }
 
-    public Integer getLocationID() {
+    public String getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Integer locationID) {
+    public void setLocationID(String locationID) {
         this.locationID = locationID;
+    }
+
+    @Nullable
+    public Country getCountryID() {
+        return countryID;
+    }
+
+    public void setCountryID(@Nullable Country countryID) {
+        this.countryID = countryID;
     }
 
     @Nullable
@@ -69,12 +81,5 @@ public class Location {
         this.stateProvince = stateProvince;
     }
 
-    @Nullable
-    public Country getCountry() {
-        return country;
-    }
 
-    public void setCountry(@Nullable Country country) {
-        this.country = country;
-    }
 }

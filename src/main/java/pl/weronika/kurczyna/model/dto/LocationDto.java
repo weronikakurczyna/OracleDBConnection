@@ -1,18 +1,18 @@
 package pl.weronika.kurczyna.model.dto;
 
 public class LocationDto {
-    private Integer locationID;
+    private String locationID;
     private String streetAddress;
     private String postalCode;
     private String city;
     private CountryDto countryID;
-    private String province;
+    private String stateProvince;
 
-    public Integer getLocationID() {
+    public String getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Integer locationID) {
+    public void setLocationID(String locationID) {
         this.locationID = locationID;
     }
 
@@ -48,11 +48,11 @@ public class LocationDto {
         this.countryID = countryID;
     }
 
-    public String getProvince() {
-        return province;
+    public String getStateProvince() {
+        return stateProvince;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setStateProvince(String stateProvince) {
+        this.stateProvince = stateProvince;
     }
 }

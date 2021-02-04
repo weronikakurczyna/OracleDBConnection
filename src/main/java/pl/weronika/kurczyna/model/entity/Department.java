@@ -2,31 +2,33 @@ package pl.weronika.kurczyna.model.entity;
 
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity(name = "departments")
+@Table(name = "DEPARTMENTS")
 public class Department {
-    @javax.persistence.Id
-    @Column(unique = true)
-    private Integer departmentID;
+    @Id
+    @Column(unique = true, name = "DEPARTMENT_ID")
+    private String departmentID;
+    @Column(name = "DEPARTMENT_NAME")
     private String departmentName;
-    @ManyToOne
+    @JoinColumn(name = "MANAGER_ID")
+    @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
     private Employee managerID;
-    @ManyToOne
+    @JoinColumn(name = "LOCATION_ID")
+    @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
     private Location locationID;
 
     public Department() {
     }
 
-    public Integer getDepartmentID() {
+    public String getDepartmentID() {
         return departmentID;
     }
 
-    public void setDepartmentID(Integer departmentID) {
+    public void setDepartmentID(String departmentID) {
         this.departmentID = departmentID;
     }
 

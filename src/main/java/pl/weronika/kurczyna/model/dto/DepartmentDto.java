@@ -1,16 +1,15 @@
 package pl.weronika.kurczyna.model.dto;
 
 public class DepartmentDto {
-    private Integer departmentID;
+    private String departmentID;
     private String departmentName;
     private LocationDto locationID;
-    private Integer managerID;
 
-    public Integer getDepartmentID() {
+    public String getDepartmentID() {
         return departmentID;
     }
 
-    public void setDepartmentID(Integer departmentID) {
+    public void setDepartmentID(String departmentID) {
         this.departmentID = departmentID;
     }
 
@@ -28,13 +27,5 @@ public class DepartmentDto {
 
     public void setLocationID(LocationDto locationID) {
         this.locationID = locationID;
-    }
-
-    public Integer getManagerID() {
-        return managerID;
-    }
-
-    public void setManagerID(Integer managerID) {
-        this.managerID = managerID;
     }
 }

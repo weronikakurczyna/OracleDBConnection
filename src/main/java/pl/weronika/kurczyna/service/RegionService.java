@@ -11,13 +11,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RegionService implements RegionServiceInterface {
+public class RegionService {
     @Autowired
     private RegionRepository regionRepository;
     @Autowired
     private ModelMapper modelMapper;
 
-    @Override
     public List<RegionDto> getRegions() {
         List<Region> regions = regionRepository.findAll();
         return regions.stream()
@@ -25,8 +24,7 @@ public class RegionService implements RegionServiceInterface {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public RegionDto getRegionID(Integer regionID) {
+    public RegionDto getRegionID(String regionID) {
         return convertToDto(regionRepository.findById(regionID).get());
     }
 

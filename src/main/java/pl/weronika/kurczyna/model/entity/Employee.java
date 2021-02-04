@@ -1,43 +1,52 @@
 package pl.weronika.kurczyna.model.entity;
 import org.springframework.lang.Nullable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity(name = "employees")
+@Table(name = "EMPLOYEES")
 public class Employee {
-    @javax.persistence.Id
-    @Column(unique = true)
-    private Integer employeeID;
+    @Id
+    @Column(unique = true, name = "EMPLOYEE_ID")
+    private String employeeID;
+    @Column(name = "LAST_NAME")
     private String lastName;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "HIRE_DATE")
     private Date hireDate;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "JOB_ID")
     private Job jobID;
     @Nullable
+    @Column(name = "FIRST_NAME")
     private String firstName;
     @Nullable
+    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
     @Nullable
+    @Column(name = "SALARY")
     private Integer salary;
     @Nullable
+    @Column(name = "COMMISSION_PCT")
     private Double commissionPCT;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
+    @JoinColumn(name = "MANAGER_ID")
     private Employee managerID;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
+    @JoinColumn(name = "DEPARTMENT_ID")
     private Department departmentID;
 
     public Employee() {
     }
 
-    public Integer getEmployeeID() {
+    public String getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(Integer employeeID) {
+    public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
     }
 

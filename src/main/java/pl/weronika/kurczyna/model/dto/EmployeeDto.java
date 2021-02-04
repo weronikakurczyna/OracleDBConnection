@@ -3,7 +3,7 @@ package pl.weronika.kurczyna.model.dto;
 import java.sql.Date;
 
 public class EmployeeDto {
-    private Integer employeeID;
+    private String employeeID;
     private String firstName;
     private String lastName;
     private String email;
@@ -12,14 +12,22 @@ public class EmployeeDto {
     private JobDto jobID;
     private Integer salary;
     private Double commissionPCT;
-    private Integer managerID;
-    private Integer departmentId;
+    private EmployeeDto managerID;
+    private DepartmentDto departmentID;
 
-    public Integer getEmployeeID() {
+    public EmployeeDto getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(EmployeeDto managerID) {
+        this.managerID = managerID;
+    }
+
+    public String getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(Integer employeeID) {
+    public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -87,19 +95,11 @@ public class EmployeeDto {
         this.commissionPCT = commissionPCT;
     }
 
-    public Integer getManagerID() {
-        return managerID;
+    public DepartmentDto getDepartmentID() {
+        return departmentID;
     }
 
-    public void setManagerID(Integer managerID) {
-        this.managerID = managerID;
-    }
-
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentID(DepartmentDto departmentID) {
+        this.departmentID = departmentID;
     }
 }

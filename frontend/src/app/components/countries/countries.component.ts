@@ -7,10 +7,8 @@ import {Country} from "./country";
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
-
 export class CountriesComponent implements OnInit {
   private countries: Country[];
-  private downloadedCountries: any;
 
   constructor(private countriesService: CountriesService) {
   }
@@ -20,10 +18,8 @@ export class CountriesComponent implements OnInit {
   }
 
   private showInfo() {
-    this.downloadedCountries = this.countriesService.getCountries().subscribe({
-      next: data => {
-        this.countries = data;
-      }
-    });
+    this.countriesService
+      .getCountries()
+      .subscribe((data: Country[]) => this.countries = data);
   }
 }

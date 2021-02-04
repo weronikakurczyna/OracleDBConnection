@@ -1,17 +1,17 @@
-import {Region, RegionAttrs} from "../regions/region";
+import {Region, RegionInterface} from "../regions/region";
 
 
-export interface CountryAttrs {
+export interface CountryInterface {
   countryID: number;
   countryName: string;
-  regionID: RegionAttrs;
+  regionID: RegionInterface;
 }
 
 export class Country {
-  constructor(attrs: Partial<CountryAttrs> = {}) {
-    this.countryID = attrs.countryID;
-    this.countryName = attrs.countryName;
-    this.regionID = new Region(attrs.regionID);
+  constructor(fields: Partial<CountryInterface>) {
+    this.countryID = fields.countryID;
+    this.countryName = fields.countryName;
+    this.regionID = new Region(fields.regionID);
   }
   countryID: number;
   countryName: string;
