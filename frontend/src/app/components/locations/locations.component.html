@@ -1,1 +1,26 @@
-<p>locations works!</p>
+<div class="container">
+  <h4>Locations</h4>
+  <div *ngFor="let location of locations ">
+    <div class="card" *ngIf="location">
+      <p>
+        <b>ID:</b> {{location.locationID}}
+      </p>
+      <p>
+        <b>Street address: </b> {{location.streetAddress }}
+      </p>
+      <p>
+        <b>Postal code: </b> {{location.postalCode }}
+      </p>
+      <p>
+        <b>City: </b> {{location.city }}
+      </p>
+      <p>
+        <b>State province: </b> {{location.stateProvince }}
+      </p>
+      <p *ngIf="location.countryID">
+        <b>Country name: </b> {{location.countryID.countryName }}
+      </p>
+      <div></div>
+    </div>
+  </div>
+</div>

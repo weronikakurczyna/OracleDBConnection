@@ -2,7 +2,7 @@ import {Region, RegionInterface} from "../regions/region";
 
 
 export interface CountryInterface {
-  countryID: number;
+  countryID: string;
   countryName: string;
   regionID: RegionInterface;
 }
@@ -13,7 +13,7 @@ export class Country {
     this.countryName = fields.countryName;
     this.regionID = new Region(fields.regionID);
   }
-  countryID: number;
+  countryID: string;
   countryName: string;
   regionID: Region;
 

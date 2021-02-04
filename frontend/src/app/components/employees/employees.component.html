@@ -1,1 +1,40 @@
-<p>employees works!</p>
+<div class="container">
+  <h4>Employees</h4>
+  <div *ngFor="let employee of employees ">
+    <div class="card" *ngIf="employee">
+      <p>
+        <b>ID: </b> {{employee.employeeID}}
+      </p>
+      <p>
+        <b>First name: </b> {{employee.firstName }}
+      </p>
+      <p>
+        <b>Last name: </b> {{employee.lastName }}
+      </p>
+      <p>
+        <b>Email: </b> {{employee.email }}
+      </p>
+      <p>
+        <b>Phone number: </b> {{employee.phoneNumber }}
+      </p>
+      <p>
+        <b>Hire date: </b> {{employee.hireDate }}
+      </p>
+      <p>
+        <b>Salary: </b> {{employee.salary }}
+      </p>
+      <p>
+        <b>Commission PCT: </b> {{employee.commissionPct }}
+      </p>
+      <p *ngIf="employee.managerID">
+        <b>Manager ID: </b> {{employee.managerID.employeeID }}
+      </p>
+      <p *ngIf="employee.departmentID">
+        <b>Department name: </b> {{employee.departmentID.departmentName }}
+      </p>
+      <p *ngIf="employee.jobID">
+        <b>Job title: </b> {{employee.jobID.jobTitle }}
+      </p>
+    </div>
+  </div>
+</div>

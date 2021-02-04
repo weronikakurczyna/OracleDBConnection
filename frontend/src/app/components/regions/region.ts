@@ -1,6 +1,6 @@
 
 export interface RegionInterface {
-  regionID: number;
+  regionID: string;
   regionName: string;
 }
 
@@ -10,7 +10,7 @@ export class Region {
     this.regionName = fields.regionName;
   }
 
-  regionID: number;
+  regionID: string;
   regionName: string;
 
 }

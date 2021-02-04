@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Department} from "../departments/department";
+import {DepartmentsService} from "../../services/departments.service";
+import {LocationsService} from "../../services/locations.service";
+import {Location} from "./location";
 
 @Component({
   selector: 'app-locations',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationsComponent implements OnInit {
 
-  constructor() { }
+  private locations: Location[];
+
+  constructor(private locationsService: LocationsService) {
+  }
 
   ngOnInit(): void {
+    this.showInfo();
+  }
+
+  private showInfo() {
+    this.locationsService
+      .getLocations()
+      .subscribe((data: Location[]) => this.locations = data);
   }
 
 }
