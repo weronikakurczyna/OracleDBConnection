@@ -8,7 +8,7 @@ import {Country} from "./country";
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent implements OnInit {
-  private countries: Country[];
+  countries: Country[];
 
   constructor(private countriesService: CountriesService) {
   }

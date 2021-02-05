@@ -17,7 +17,7 @@ public class Employee {
     private Date hireDate;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "JOB_ID")
-    private Job jobID;
+    private Job job;
     @Nullable
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -74,12 +74,12 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
-    public Job getJobID() {
-        return jobID;
+    public Job getJob() {
+        return job;
     }
 
-    public void setJobID(Job jobID) {
-        this.jobID = jobID;
+    public void setJob(Job job) {
+        this.job = job;
     }
 
     @Nullable

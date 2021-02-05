@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.weronika.kurczyna.model.dto.CountryDto;
 import pl.weronika.kurczyna.model.dto.RegionDto;
 import pl.weronika.kurczyna.service.RegionService;
 
@@ -25,4 +26,10 @@ public class RegionController {
     public ResponseEntity<RegionDto> getRegion(@PathVariable(value = "id") String regionID) {
         return new ResponseEntity<>(regionService.getRegionID(regionID), HttpStatus.OK);
     }
+
+    @PostMapping("/regions")
+    public ResponseEntity<RegionDto> createCountry(@RequestBody RegionDto regionDto) {
+        return new ResponseEntity<>(regionService.createRegion(regionDto), HttpStatus.CREATED);
+    }
+
 }

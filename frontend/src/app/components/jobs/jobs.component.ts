@@ -11,7 +11,7 @@ import {Job} from "./job";
 })
 export class JobsComponent implements OnInit {
 
-  private jobs: Job[];
+  jobs: Job[];
 
   constructor(private jobsService: JobsService) {
   }
@@ -24,5 +24,13 @@ export class JobsComponent implements OnInit {
     this.jobsService
       .getJobs()
       .subscribe((data: Job[]) => this.jobs = data);
+  }
+
+  private onDelete(jobID: string) {
+    console.log('deleted ' + jobID);
+    this.jobsService.deleteJob(jobID)
+      .subscribe(() => console.log(`Employee with ID = ${jobID} deleted`));
+
+
   }
 }

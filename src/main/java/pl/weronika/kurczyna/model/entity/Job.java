@@ -2,14 +2,17 @@ package pl.weronika.kurczyna.model.entity;
 
 import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name = "jobs")
 @Table(name = "JOBS")
 public class Job {
     @Id
     @Column(unique = true, name = "JOB_ID")
-    private String jobID;
+    private String id;
     @Column(name = "JOB_TITLE")
     private String jobTitle;
     @Nullable
@@ -18,16 +21,23 @@ public class Job {
     @Nullable
     @Column(name = "MAX_SALARY")
     private Integer maxSalary;
+//    @OneToMany(
+//            mappedBy = "JOBS",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<Employee> emp = new ArrayList<>();
+
 
     public Job() {
     }
 
-    public String getJobID() {
-        return jobID;
+    public String getId() {
+        return id;
     }
 
-    public void setJobID(String jobID) {
-        this.jobID = jobID;
+    public void setId(String jobID) {
+        this.id = jobID;
     }
 
     public String getJobTitle() {

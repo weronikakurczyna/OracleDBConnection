@@ -9,6 +9,7 @@ import {Job, JobInterface} from "../components/jobs/job";
 })
 export class JobsService {
   private jobUrl: string = "http://localhost:8080/api/jobs";
+  private jobUrl1: string = "http://localhost:8080/api/job";
 
   constructor(protected http: HttpClient) {
   }
@@ -17,4 +18,11 @@ export class JobsService {
     return this.http
       .get<JobInterface[]>(this.jobUrl);
   }
+
+  deleteJob(id: string): Observable<string> {
+    const deleteUrl = `${this.jobUrl1}/${id}`;
+    return this.http.delete<string>(deleteUrl);
+  }
+
+
 }

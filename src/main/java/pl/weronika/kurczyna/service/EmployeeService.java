@@ -29,6 +29,11 @@ public class EmployeeService {
         return convertToDto(employeeRepository.findById(employeeID).get());
     }
 
+//    public void deleteEmployee(String employeeID) {
+//        employeeRepository.deleteById(employeeID);
+//    }
+
+
     private EmployeeDto convertToDto(Employee employee) {
         return modelMapper.map(employee, EmployeeDto.class);
     }

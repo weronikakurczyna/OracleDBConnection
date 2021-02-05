@@ -1,7 +1,13 @@
 package pl.weronika.kurczyna.model.repository;
 
-import pl.weronika.kurczyna.model.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import pl.weronika.kurczyna.model.entity.Employee;
 
-public interface EmployeeRepository extends JpaRepository<Employee, String> {}
+import java.util.List;
+
+public interface EmployeeRepository extends JpaRepository<Employee, String> {
+
+    List<Employee> findAllByJobId(String Id);
+
+}
 

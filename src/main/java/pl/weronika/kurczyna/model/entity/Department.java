@@ -20,9 +20,14 @@ public class Department {
     @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
     private Location locationID;
-
-    public Department() {
-    }
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<Employee> comments = new ArrayList<>();
+//
+//    public Department() {
+//    }
 
     public String getDepartmentID() {
         return departmentID;

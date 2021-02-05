@@ -27,8 +27,8 @@ public class CountryController {
         return new ResponseEntity<>(countryService.getCountryByCountryId(countryID), HttpStatus.OK);
     }
 
-//    @PostMapping("/countries")
-//    public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto) {
-//        return new ResponseEntity<>(countryService.createCountry(countryDto), HttpStatus.CREATED);
-//    }
+    @PostMapping("/countries")
+    public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto) {
+        return new ResponseEntity<>(countryService.createCountry(countryDto), HttpStatus.CREATED);
+    }
 }

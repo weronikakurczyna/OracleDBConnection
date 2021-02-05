@@ -11,7 +11,7 @@ import {Location} from "./location";
 })
 export class LocationsComponent implements OnInit {
 
-  private locations: Location[];
+  locations: Location[];
 
   constructor(private locationsService: LocationsService) {
   }

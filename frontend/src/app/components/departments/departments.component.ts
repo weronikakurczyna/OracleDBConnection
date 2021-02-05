@@ -11,7 +11,7 @@ import {DepartmentsService} from "../../services/departments.service";
 })
 export class DepartmentsComponent implements OnInit {
 
-  private departments: Department[];
+  departments: Department[];
 
   constructor(private departmentsService: DepartmentsService) {
   }

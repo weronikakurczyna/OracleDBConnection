@@ -34,15 +34,15 @@ public class CountryService {
     }
 
 
-//    public CountryDto createCountry(CountryDto countryDto) {
-//        Country newCountry = new Country();
-//        newCountry.setCountryID(countryDto.getCountryID());
-//        newCountry.setCountryName(countryDto.getCountryName());
-//        newCountry.setRegionID(null);
-//
-//
-//        Country savedCountry = countryRepository.save(newCountry);
-//
-//        return convertToDto(savedCountry);
+    public CountryDto createCountry(CountryDto countryDto) {
+        Country newCountry = new Country();
+        newCountry.setCountryID(countryDto.getCountryID());
+        newCountry.setCountryName(countryDto.getCountryName());
+        newCountry.setRegionID(null);
+
+        Country savedCountry = countryRepository.save(newCountry);
+
+        return convertToDto(savedCountry);
+    }
 }
 

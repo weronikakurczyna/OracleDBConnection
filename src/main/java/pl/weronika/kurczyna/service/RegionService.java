@@ -28,6 +28,15 @@ public class RegionService {
         return convertToDto(regionRepository.findById(regionID).get());
     }
 
+    public RegionDto createRegion(RegionDto regionDto) {
+        Region newRegion = new Region();
+        newRegion.setRegionID(regionDto.getRegionID());
+        newRegion.setRegionName(regionDto.getRegionName());
+        Region savedRegion = regionRepository.save(newRegion);
+
+        return convertToDto(savedRegion);
+    }
+
     private RegionDto convertToDto(Region region) {
         return modelMapper.map(region, RegionDto.class);
     }

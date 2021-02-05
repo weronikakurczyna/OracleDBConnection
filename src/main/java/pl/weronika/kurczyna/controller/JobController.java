@@ -22,9 +22,17 @@ public class JobController {
         return new ResponseEntity<>(jobService.getJobs(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/jobs/{id}")
+    @GetMapping(path = "/job/{id}")
     public ResponseEntity<JobDto> getJob(@PathVariable(value = "id") String jobID) {
         return new ResponseEntity<>(jobService.getJobByJobId(jobID), HttpStatus.OK);
 
     }
+
+    @DeleteMapping(path = "/job/{id}")
+    public ResponseEntity<String> deleteJob(@PathVariable(value = "id") String jobID) {
+        jobService.deleteJob(jobID);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }
+
