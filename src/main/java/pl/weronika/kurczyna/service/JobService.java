@@ -34,17 +34,26 @@ public class JobService {
     }
 
     public void deleteJob(String jobID) {
-        List<Employee> employeesTochangeJob = employeeRepository.findAllByJobId(jobID);
+        List<Employee> employeesToChangeJob = employeeRepository.findAllByJobId(jobID);
         Job defaultJob = jobRepository.findById("AD_PRES").orElseThrow();
 
-        employeesTochangeJob.forEach(employee -> {
+        employeesToChangeJob.forEach(employee -> {
             employee.setJob(defaultJob);
             employeeRepository.save(employee);
         });
-
         jobRepository.deleteById(jobID);
     }
 
+    public JobDto createJob(JobDto jobDto) {
+        Job newJob = new Job();
+        newJob.setId(jobDto.getJobID());
+        newJob.setJobTitle(jobDto.getJobTitle());
+        newJob.setMinSalary(jobDto.getMinSalary());
+        newJob.setMaxSalary(jobDto.getMaxSalary());
+        Job savedJob = jobRepository.save(newJob);
+
+        return convertToDto(savedJob);
+    }
     private JobDto convertToDto(Job job) {
         return modelMapper.map(job, JobDto.class);
     }

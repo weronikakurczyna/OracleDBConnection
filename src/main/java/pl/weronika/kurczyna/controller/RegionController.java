@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.weronika.kurczyna.model.dto.CountryDto;
 import pl.weronika.kurczyna.model.dto.RegionDto;
 import pl.weronika.kurczyna.service.RegionService;
 
@@ -28,8 +27,14 @@ public class RegionController {
     }
 
     @PostMapping("/regions")
-    public ResponseEntity<RegionDto> createCountry(@RequestBody RegionDto regionDto) {
+    public ResponseEntity<RegionDto> createRegion(@RequestBody RegionDto regionDto) {
         return new ResponseEntity<>(regionService.createRegion(regionDto), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping(path = "/region/{id}")
+    public ResponseEntity<String> deleteRegion(@PathVariable(value = "id") String regionID) {
+        regionService.deleteRegion(regionID);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

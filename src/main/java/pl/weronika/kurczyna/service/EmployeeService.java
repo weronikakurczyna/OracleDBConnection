@@ -29,10 +29,28 @@ public class EmployeeService {
         return convertToDto(employeeRepository.findById(employeeID).get());
     }
 
-//    public void deleteEmployee(String employeeID) {
-//        employeeRepository.deleteById(employeeID);
+//    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+//        Employee newEmployee = new Employee();
+//        newEmployee.setEmployeeID(employeeDto.getEmployeeID());
+//        newEmployee.setFirstName(employeeDto.getFirstName());
+//        newEmployee.setLastName(employeeDto.getLastName());
+//        newEmployee.setEmail(employeeDto.getEmail());
+//        newEmployee.setPhoneNumber(employeeDto.getPhoneNumber());
+//        newEmployee.setHireDate(employeeDto.getHireDate());
+//        newEmployee.setSalary(employeeDto.getSalary());
+//        newEmployee.setCommissionPCT(employeeDto.getCommissionPCT());
+//        newEmployee.setManagerID(null);
+//        newEmployee.setDepartmentID(null);
+//
+//        Employee savedEmployee = employeeRepository.save(newEmployee);
+//
+//        return convertToDto(savedEmployee);
 //    }
 
+//    public void deleteEmployee(String employeeID) {
+//        employeeRepository.deleteById(employeeID);
+//
+//    }
 
     private EmployeeDto convertToDto(Employee employee) {
         return modelMapper.map(employee, EmployeeDto.class);

@@ -12,6 +12,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { RegionsComponent } from './components/regions/regions.component';
 import {FormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {FormsModule} from "@angular/forms";
     NgbModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: "countries", component: CountriesComponent},
       {path: "departments", component: DepartmentsComponent},

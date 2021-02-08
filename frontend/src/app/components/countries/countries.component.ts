@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CountriesService} from "../../services/countries.service";
 import {Country} from "./country";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-countries',
@@ -10,6 +11,12 @@ import {Country} from "./country";
 export class CountriesComponent implements OnInit {
   countries: Country[];
 
+  countryForm = new FormGroup({
+      countryID: new FormControl(),
+      countryName: new FormControl()
+    }
+  )
+
   constructor(private countriesService: CountriesService) {
   }
 
@@ -17,9 +24,24 @@ export class CountriesComponent implements OnInit {
     this.showInfo();
   }
 
-  private showInfo() {
+  showInfo() {
     this.countriesService
       .getCountries()
       .subscribe((data: Country[]) => this.countries = data);
+  }
+
+  onDelete(countryID: string) {
+    this.countriesService.deleteCountry(countryID)
+      .subscribe(() => console.log(`Country with ID = ${countryID} deleted`));
+    //this.refresh();
+  }
+
+  onInsert(): void {
+    this.countriesService.insertCountry(this.countryForm.value).subscribe(() => console.log('Country added'));
+    this.refresh();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 }

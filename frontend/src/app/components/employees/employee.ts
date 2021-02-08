@@ -1,4 +1,3 @@
-import {Location, LocationInterface} from "../locations/location";
 import {Job, JobInterface} from "../jobs/job";
 import {Department, DepartmentInterface} from "../departments/department";
 

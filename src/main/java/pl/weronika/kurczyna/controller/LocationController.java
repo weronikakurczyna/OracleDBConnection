@@ -21,10 +21,20 @@ public class LocationController {
         return new ResponseEntity<>(locationService.getLocations(), HttpStatus.OK);
     }
 
-
     @GetMapping(path = "/location/{id}")
     public ResponseEntity<LocationDto> getLocation(@PathVariable(value = "id") String locationID) {
         return new ResponseEntity<>(locationService.getLocationByLocationId(locationID), HttpStatus.OK);
 
+    }
+
+    @PostMapping("/locations")
+    public ResponseEntity<LocationDto> createLocation(@RequestBody LocationDto locationDto) {
+        return new ResponseEntity<>(locationService.createLocation(locationDto), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping(path = "/location/{id}")
+    public ResponseEntity<String> deleteLocation(@PathVariable(value = "id") String locationID) {
+        locationService.deleteLocation(locationID);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -20,7 +20,28 @@
       <p *ngIf="location.countryID">
         <b>Country name: </b> {{location.countryID.countryName }}
       </p>
-      <div></div>
+      <button class="btn btn-outline-info" (click)="onDelete(location.locationID)">Delete</button>
     </div>
+  </div>
+  <div class="insert">
+    <h5>Insert new Location</h5>
+    <form [formGroup]="locationForm" (ngSubmit)="onInsert()">
+      <div class="form-group">
+        <input formControlName="locationID" class="form-control" placeholder="Enter ID">
+      </div>
+      <div class="form-group">
+        <input formControlName="streetAddress" class="form-control" placeholder="Enter street address">
+      </div>
+      <div class="form-group">
+        <input formControlName="postalCode" class="form-control" placeholder="Enter postal code">
+      </div>
+      <div class="form-group">
+        <input formControlName="city" class="form-control" placeholder="Enter city">
+      </div>
+      <div class="form-group">
+        <input formControlName="stateProvince" class="form-control" placeholder="Enter state province">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Insert</button>
+    </form>
   </div>
 </div>

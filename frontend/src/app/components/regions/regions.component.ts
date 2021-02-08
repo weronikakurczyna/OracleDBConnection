@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RegionsService} from "../../services/regions.service";
 import {Region} from "./region";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-regions',
@@ -9,6 +10,11 @@ import {Region} from "./region";
 })
 export class RegionsComponent implements OnInit {
   regions: Region[];
+
+  regionForm = new FormGroup({
+    regionID: new FormControl(),
+    regionName: new FormControl()
+  });
 
   constructor(private regionsService: RegionsService) {
   }
@@ -25,4 +31,18 @@ export class RegionsComponent implements OnInit {
     });
   }
 
+  onDelete(regionID: string) {
+    this.regionsService.deleteRegion(regionID)
+      .subscribe(() => console.log(`Region with ID = ${regionID} deleted`));
+    this.refresh();
+  }
+
+  onInsert() {
+    this.regionsService.insertRegion(this.regionForm.value).subscribe(() => console.log('Region added'));
+    this.refresh();
+  }
+
+  refresh(): void {
+    window.location.reload();
+  }
 }

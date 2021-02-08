@@ -28,6 +28,11 @@ public class JobController {
 
     }
 
+    @PostMapping("/jobs")
+    public ResponseEntity<JobDto> createJob(@RequestBody JobDto jobDto) {
+        return new ResponseEntity<>(jobService.createJob(jobDto), HttpStatus.CREATED);
+    }
+
     @DeleteMapping(path = "/job/{id}")
     public ResponseEntity<String> deleteJob(@PathVariable(value = "id") String jobID) {
         jobService.deleteJob(jobID);

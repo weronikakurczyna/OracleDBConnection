@@ -28,9 +28,14 @@ public class EmployeeController {
 
     }
 
-//    @DeleteMapping(path = "/employee/{id}")
-//    public @ResponseBody void deleteEmployee(@PathVariable(value = "id") String employeeID) {
-//        employeeService.deleteEmployee(employeeID);
+//    @PostMapping("/employees")
+//    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
+//        return new ResponseEntity<>(employeeService.createEmployee(employeeDto), HttpStatus.CREATED);
 //    }
 
+//    @DeleteMapping(path = "/employee/{id}")
+//    public ResponseEntity<String> deleteEmployee(@PathVariable(value = "id") String employeeID) {
+//        employeeService.deleteEmployee(employeeID);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
 }

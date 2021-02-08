@@ -29,6 +29,24 @@ public class LocationService {
         return convertToDto(locationRepository.findById(locationID).get());
     }
 
+
+    public LocationDto createLocation(LocationDto locationDto) {
+        Location newLocation = new Location();
+        newLocation.setLocationID(locationDto.getLocationID());
+        newLocation.setStreetAddress(locationDto.getStreetAddress());
+        newLocation.setPostalCode(locationDto.getPostalCode());
+        newLocation.setCity(locationDto.getCity());
+        newLocation.setStateProvince(locationDto.getStateProvince());
+        newLocation.setCountryID(null);
+        Location savedLocation = locationRepository.save(newLocation);
+
+        return convertToDto(savedLocation);
+    }
+
+    public void deleteLocation(String locationID) {
+        locationRepository.deleteById(locationID);
+    }
+
     private LocationDto convertToDto(Location location) {
         return modelMapper.map(location, LocationDto.class);
     }

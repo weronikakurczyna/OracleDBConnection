@@ -44,5 +44,9 @@ public class CountryService {
 
         return convertToDto(savedCountry);
     }
+
+    public void deleteCountry(String countryID) {
+        countryRepository.deleteById(countryID);
+    }
 }
 

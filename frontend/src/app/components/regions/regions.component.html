@@ -6,8 +6,21 @@
         <b>ID:</b> {{region.regionID}}
       </p>
       <p>
-        <b>Country name: </b> {{region.regionName }}
+        <b>Region name: </b> {{region.regionName }}
       </p>
+      <button class="btn btn-outline-info" (click)="onDelete(region.regionID)">Delete</button>
     </div>
+  </div>
+  <div class="insert">
+    <h5>Insert new Region</h5>
+    <form [formGroup]="regionForm" (ngSubmit)="onInsert()">
+      <div class="form-group">
+        <input formControlName="regionID" class="form-control" placeholder="Enter ID">
+      </div>
+      <div class="form-group">
+        <input formControlName="regionName" class="form-control" placeholder="Enter region name">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Insert</button>
+    </form>
   </div>
 </div>

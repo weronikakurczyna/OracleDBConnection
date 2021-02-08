@@ -29,6 +29,22 @@ public class DepartmentService {
         return convertToDto(departmentRepository.findById(departmentID).get());
     }
 
+    public DepartmentDto createDepartment(DepartmentDto departmentDto) {
+        Department newDepartment = new Department();
+        newDepartment.setDepartmentID(departmentDto.getDepartmentID());
+        newDepartment.setDepartmentName(departmentDto.getDepartmentName());
+        newDepartment.setManagerID(null);
+        newDepartment.setLocationID(null);
+        Department savedDepartment = departmentRepository.save(newDepartment);
+
+        return convertToDto(savedDepartment);
+    }
+
+    public void deleteDepartment(String departmentID) {
+        departmentRepository.deleteById(departmentID);
+    }
+
+
     private DepartmentDto convertToDto(Department department) {
         return modelMapper.map(department, DepartmentDto.class);
     }

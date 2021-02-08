@@ -1,4 +1,3 @@
-import {Location, LocationInterface} from "../locations/location";
 
 export interface JobInterface {
   jobID: string;
@@ -19,5 +18,7 @@ export class Job {
   jobTitle: string;
   minSalary: number;
   maxSalary: number;
+
+
 
 }

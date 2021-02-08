@@ -1,5 +1,6 @@
 <div class="container">
   <h4>Jobs</h4>
+
   <div *ngFor="let job of jobs ">
     <div class="card" *ngIf="job">
       <p>
@@ -16,5 +17,23 @@
       </p>
       <button class="btn btn-outline-info" (click)="onDelete(job.jobID)">Delete</button>
     </div>
+  </div>
+  <div class="insert">
+    <h5>Insert new Job</h5>
+    <form [formGroup]="jobForm" (ngSubmit)="onInsert()">
+      <div class="form-group">
+        <input formControlName="jobID" class="form-control" placeholder="Enter ID">
+      </div>
+      <div class="form-group">
+        <input formControlName="jobTitle" class="form-control" placeholder="Enter job title">
+      </div>
+      <div class="form-group">
+        <input formControlName="minSalary" class="form-control" placeholder="Enter min salary">
+      </div>
+      <div class="form-group">
+        <input formControlName="maxSalary" class="form-control" placeholder="Enter max salary">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Insert</button>
+    </form>
   </div>
 </div>

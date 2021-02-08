@@ -11,6 +11,20 @@
       <p *ngIf="department.locationID">
         <b>City: </b> {{department.locationID.city }}
       </p>
+      <button class="btn btn-outline-info" (click)="onDelete(department.departmentID)">Delete</button>
     </div>
+  </div>
+  <div class="insert">
+    <h5>Insert new Department</h5>
+    <form [formGroup]="departmentForm" (ngSubmit)="onInsert()">
+      <div class="form-group">
+        <input formControlName="departmentID" class="form-control" placeholder="Enter ID">
+      </div>
+      <div class="form-group">
+        <input formControlName="departmentName" class="form-control" placeholder="Enter department name">
+      </div>
+
+      <button type="submit" class="btn btn-outline-primary">Insert</button>
+    </form>
   </div>
 </div>

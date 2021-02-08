@@ -9,6 +9,7 @@ import {Department, DepartmentInterface} from "../components/departments/departm
 })
 export class DepartmentsService {
   private departmentUrl: string = "http://localhost:8080/api/departments";
+  private departmentUrl2: string = "http://localhost:8080/api/department";
 
   constructor(protected http: HttpClient) {
   }
@@ -16,5 +17,14 @@ export class DepartmentsService {
   getDepartments(): Observable<Department[]> {
     return this.http
       .get<DepartmentInterface[]>(this.departmentUrl);
+  }
+
+  deleteDepartment(id: string): Observable<string> {
+    const deleteUrl = `${this.departmentUrl2}/${id}`;
+    return this.http.delete<string>(deleteUrl);
+  }
+
+  insertDepartment(formValues) {
+    return this.http.post(this.departmentUrl,formValues);
   }
 }

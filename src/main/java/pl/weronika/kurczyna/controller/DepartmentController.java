@@ -21,10 +21,20 @@ public class DepartmentController {
         return new ResponseEntity<>(departmentService.getDepartments(), HttpStatus.OK);
     }
 
-
     @GetMapping(path = "/department/{id}")
     public ResponseEntity<DepartmentDto> getDepartment(@PathVariable(value = "id") String departmentID) {
         return new ResponseEntity<>(departmentService.getDepartmentByDepartmentId(departmentID), HttpStatus.OK);
 
+    }
+
+    @PostMapping("/departments")
+    public ResponseEntity<DepartmentDto> createDepartment(@RequestBody DepartmentDto departmentDto) {
+        return new ResponseEntity<>(departmentService.createDepartment(departmentDto), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping(path = "/department/{id}")
+    public ResponseEntity<String> deleteDepartment(@PathVariable(value = "id") String departmentID) {
+        departmentService.deleteDepartment(departmentID);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

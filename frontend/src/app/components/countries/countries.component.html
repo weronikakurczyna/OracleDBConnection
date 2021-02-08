@@ -11,6 +11,19 @@
       <p *ngIf="country.regionID">
         <b>Region name: </b> {{country.regionID.regionName }}
       </p>
+      <button class="btn btn-outline-info" (click)="onDelete(country.countryID)">Delete</button>
     </div>
+  </div>
+  <div class="insert">
+    <h5>Insert new Country</h5>
+    <form [formGroup]="countryForm" (ngSubmit)="onInsert()">
+      <div class="form-group">
+        <input formControlName="countryID" class="form-control" placeholder="Enter ID">
+      </div>
+      <div class="form-group">
+        <input formControlName="countryName" class="form-control" placeholder="Enter country name">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Insert</button>
+    </form>
   </div>
 </div>

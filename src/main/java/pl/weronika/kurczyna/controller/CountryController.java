@@ -31,4 +31,10 @@ public class CountryController {
     public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto) {
         return new ResponseEntity<>(countryService.createCountry(countryDto), HttpStatus.CREATED);
     }
+
+    @DeleteMapping(path = "/country/{id}")
+    public ResponseEntity<String> deleteCountry(@PathVariable(value = "id") String countryID) {
+        countryService.deleteCountry(countryID);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

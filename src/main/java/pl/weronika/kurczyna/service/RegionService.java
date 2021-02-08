@@ -37,6 +37,10 @@ public class RegionService {
         return convertToDto(savedRegion);
     }
 
+    public void deleteRegion(String regionID) {
+        regionRepository.deleteById(regionID);
+    }
+
     private RegionDto convertToDto(Region region) {
         return modelMapper.map(region, RegionDto.class);
     }
