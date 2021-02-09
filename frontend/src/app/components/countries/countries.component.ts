@@ -37,11 +37,11 @@ export class CountriesComponent implements OnInit {
   }
 
   onInsert(): void {
-    this.countriesService.insertCountry(this.countryForm.value).subscribe(() => console.log('Country added'));
-    this.refresh();
+    this.countriesService.insertCountry(this.countryForm.value).subscribe(() => {
+      console.log('Country added')
+      this.showInfo()
+    });
+
   }
 
-  refresh(): void {
-    window.location.reload();
-  }
 }

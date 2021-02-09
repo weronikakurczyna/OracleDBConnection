@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.weronika.kurczyna.model.dto.CountryDto;
 import pl.weronika.kurczyna.model.entity.Country;
 import pl.weronika.kurczyna.model.repository.CountryRepository;
+import pl.weronika.kurczyna.model.repository.RegionRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +15,8 @@ import java.util.stream.Collectors;
 public class CountryService {
     @Autowired
     private CountryRepository countryRepository;
+    @Autowired
+    private RegionRepository regionRepository;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -38,10 +41,9 @@ public class CountryService {
         Country newCountry = new Country();
         newCountry.setCountryID(countryDto.getCountryID());
         newCountry.setCountryName(countryDto.getCountryName());
+        //Region reg = regionRepository.getOne(countryDto.getRegionID());
         newCountry.setRegionID(null);
-
         Country savedCountry = countryRepository.save(newCountry);
-
         return convertToDto(savedCountry);
     }
 

@@ -1,21 +1,22 @@
-<div class="container">
-  <h4>Jobs</h4>
-
-  <div *ngFor="let job of jobs ">
-    <div class="card" *ngIf="job">
-      <p>
-        <b>ID:</b> {{job.jobID}}
-      </p>
-      <p>
-        <b>Job title: </b> {{job.jobTitle }}
-      </p>
-      <p>
-        <b>Min salary: </b> {{job.minSalary }}
-      </p>
-      <p>
-        <b>Max salary: </b> {{job.maxSalary }}
-      </p>
-      <button class="btn btn-outline-info" (click)="onDelete(job.jobID)">Delete</button>
+<div class="small-container">
+  <h3>Jobs</h3>
+  <div class="row">
+    <div class="col-6" *ngFor="let job of jobs ">
+      <div class="card" *ngIf="job">
+        <p>
+          <b>ID:</b> {{job.jobID}}
+        </p>
+        <p>
+          <b>Job title: </b> {{job.jobTitle }}
+        </p>
+        <p>
+          <b>Min salary: </b> {{job.minSalary }}
+        </p>
+        <p>
+          <b>Max salary: </b> {{job.maxSalary }}
+        </p>
+        <button class="btn btn-outline-info" (click)="onDelete(job.jobID)">Delete</button>
+      </div>
     </div>
   </div>
   <div class="insert">

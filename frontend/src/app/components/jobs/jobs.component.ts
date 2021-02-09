@@ -37,7 +37,7 @@ export class JobsComponent implements OnInit {
     this.jobForm.reset();
   }
 
-  private onDelete(jobID: string) {
+  onDelete(jobID: string) {
     this.jobsService.deleteJob(jobID)
       .subscribe(() => {
         console.log(`Job with ID = ${jobID} deleted`)
@@ -45,7 +45,7 @@ export class JobsComponent implements OnInit {
       });
   }
 
-  private onInsert(): void {
+  onInsert(): void {
     //console.log('ID ' + this.jobForm.get('jobID').value)
     this.jobsService.insertJob(this.jobForm.value).subscribe(() => {
       console.log('Job added')

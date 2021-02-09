@@ -1,8 +1,9 @@
 package pl.weronika.kurczyna.model.repository;
 
-import pl.weronika.kurczyna.model.entity.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
+import pl.weronika.kurczyna.model.entity.Region;
 
-public interface RegionRepository extends JpaRepository<Region, String> {}
+public interface RegionRepository extends JpaRepository<Region, String> {
+}
 
 

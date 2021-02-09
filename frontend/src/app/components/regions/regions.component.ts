@@ -33,16 +33,17 @@ export class RegionsComponent implements OnInit {
 
   onDelete(regionID: string) {
     this.regionsService.deleteRegion(regionID)
-      .subscribe(() => console.log(`Region with ID = ${regionID} deleted`));
-    this.refresh();
+      .subscribe(() => {
+        console.log(`Region with ID = ${regionID} deleted`)
+        this.showInfo()
+      });
   }
 
   onInsert() {
-    this.regionsService.insertRegion(this.regionForm.value).subscribe(() => console.log('Region added'));
-    this.refresh();
+    this.regionsService.insertRegion(this.regionForm.value).subscribe(() => {
+      console.log('Region added')
+      this.showInfo()
+    });
   }
 
-  refresh(): void {
-    window.location.reload();
-  }
 }

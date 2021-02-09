@@ -36,17 +36,18 @@ export class LocationsComponent implements OnInit {
 
   onDelete(locationID: string) {
     this.locationsService.deleteLocation(locationID)
-      .subscribe(() => console.log(`Location with ID = ${locationID} deleted`));
-    this.refresh();
+      .subscribe(() => {
+        console.log(`Location with ID = ${locationID} deleted`)
+        this.showInfo()
+      });
   }
 
     onInsert(): void {
-    this.locationsService.insertLocation(this.locationForm.value).subscribe(() => console.log('Location added'));
-    this.refresh();
-  }
+    this.locationsService.insertLocation(this.locationForm.value).subscribe(() => {
+      console.log('Location added')
+      this.showInfo()
+    });
 
-  refresh(): void {
-    window.location.reload();
   }
 
 }

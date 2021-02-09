@@ -33,17 +33,20 @@ export class DepartmentsComponent implements OnInit {
 
   onDelete(departmentID: string) {
     this.departmentsService.deleteDepartment(departmentID)
-      .subscribe(() => console.log(`Department with ID = ${departmentID} deleted`));
-    this.refresh();
+      .subscribe(() => {
+        console.log(`Department with ID = ${departmentID} deleted`)
+        this.showInfo()
+      });
+
   }
 
-  private onInsert(): void {
-    this.departmentsService.insertDepartment(this.departmentForm.value).subscribe(() => console.log('Department added'));
-    this.refresh();
+  onInsert(): void {
+    this.departmentsService.insertDepartment(this.departmentForm.value).subscribe(() => {
+      console.log('Department added')
+      this.showInfo()
+    });
   }
 
-  refresh(): void {
-    window.location.reload();
-  }
+
 
 }

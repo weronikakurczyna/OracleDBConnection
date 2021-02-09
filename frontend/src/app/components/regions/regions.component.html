@@ -1,14 +1,16 @@
-<div class="container">
-  <h4>Regions</h4>
-  <div *ngFor="let region of regions ">
-    <div class="card" *ngIf="region">
-      <p>
-        <b>ID:</b> {{region.regionID}}
-      </p>
-      <p>
-        <b>Region name: </b> {{region.regionName }}
-      </p>
-      <button class="btn btn-outline-info" (click)="onDelete(region.regionID)">Delete</button>
+<div class="small-container">
+  <h3>Regions</h3>
+  <div class="row">
+    <div class="col-6" *ngFor="let region of regions ">
+      <div class="card" *ngIf="region">
+        <p>
+          <b>ID:</b> {{region.regionID}}
+        </p>
+        <p>
+          <b>Region name: </b> {{region.regionName }}
+        </p>
+        <button class="btn btn-outline-info" (click)="onDelete(region.regionID)">Delete</button>
+      </div>
     </div>
   </div>
   <div class="insert">
