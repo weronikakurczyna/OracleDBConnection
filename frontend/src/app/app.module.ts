@@ -13,6 +13,8 @@ import { LocationsComponent } from './components/locations/locations.component';
 import { RegionsComponent } from './components/regions/regions.component';
 import {FormsModule} from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { JobGradesComponent } from './components/job-grades/job-grades.component';
+import { JobHistoryComponent } from './components/job-history/job-history.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     EmployeesComponent,
     JobsComponent,
     LocationsComponent,
-    RegionsComponent
+    RegionsComponent,
+    JobGradesComponent,
+    JobHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -31,15 +35,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      {path: "countries", component: CountriesComponent},
-      {path: "departments", component: DepartmentsComponent},
-      {path: "employees", component: EmployeesComponent},
-      {path: "jobs", component: JobsComponent},
-      {path: "locations", component: LocationsComponent},
-      {path: "regions", component: RegionsComponent}
-    ]),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

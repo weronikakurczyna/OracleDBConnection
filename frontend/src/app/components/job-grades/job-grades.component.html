@@ -1,0 +1,34 @@
+<div class="small-container">
+  <h3>Job Grades</h3>
+  <div class="row">
+    <div class="col-6" *ngFor="let jobGrade of jobGrades ">
+      <div class="card" *ngIf="jobGrade">
+        <p>
+          <b>Grade level: </b> {{jobGrade.gradeLevel}}
+        </p>
+        <p>
+          <b>Lowest salary:</b> {{jobGrade.lowestSal }}
+        </p>
+        <p>
+          <b>Highest salary:</b> {{jobGrade.highestSal }}
+        </p>
+        <button class="btn btn-outline-info" (click)="onDelete(jobGrade.gradeLevel)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div class="insert">
+    <h5>Insert new Job grade</h5>
+    <form [formGroup]="jobGradesForm" (ngSubmit)="onInsert()">
+      <div class="form-group">
+        <input formControlName="gradeLevel" class="form-control" placeholder="Enter grade level">
+      </div>
+      <div class="form-group">
+        <input formControlName="lowestSal" class="form-control" placeholder="Enter lowest salary">
+      </div>
+      <div class="form-group">
+        <input formControlName="highestSal" class="form-control" placeholder="Enter highest salary">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Insert</button>
+    </form>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import {Employee, EmployeeInterface} from "../components/employees/employee";
 export class EmployeesService {
 
   private employeeUrl: string = "http://localhost:8080/api/employees";
-  private employeeUrl2: string = "http://localhost:8080/api/employee";
+  //private employeeUrl2: string = "http://localhost:8080/api/employee";
 
   constructor(protected http: HttpClient) {
   }

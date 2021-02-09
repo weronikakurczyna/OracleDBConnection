@@ -12,16 +12,16 @@ export class EmployeesComponent implements OnInit {
 
   employees: Employee[];
 
-  employeeForm = new FormGroup({
-    employeeID: new FormControl(),
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    email: new FormControl(),
-    phoneNumber: new FormControl(),
-    hireDate: new FormControl(),
-    salary: new FormControl(),
-    commissionPct: new FormControl()
-  })
+  // employeeForm = new FormGroup({
+  //   employeeID: new FormControl(),
+  //   firstName: new FormControl(),
+  //   lastName: new FormControl(),
+  //   email: new FormControl(),
+  //   phoneNumber: new FormControl(),
+  //   hireDate: new FormControl(),
+  //   salary: new FormControl(),
+  //   commissionPct: new FormControl()
+  // })
 
   constructor(private employeesService: EmployeesService) {
   }

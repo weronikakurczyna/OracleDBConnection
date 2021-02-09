@@ -53,7 +53,4 @@ export class JobsComponent implements OnInit {
     });
   }
 
-  refresh(): void {
-    window.location.reload();
-  }
 }
