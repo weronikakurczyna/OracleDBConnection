@@ -1,32 +1,50 @@
 <div class="small-container">
   <h3>Departments</h3>
   <div class="row">
-  <div class="col-6" *ngFor="let department of departments ">
-    <div class="card" *ngIf="department">
-      <p>
-        <b>ID:</b> {{department.departmentID}}
-      </p>
-      <p>
-        <b>Department name: </b> {{department.departmentName }}
-      </p>
-      <p *ngIf="department.locationID">
-        <b>City: </b> {{department.locationID.city }}
-      </p>
-      <button class="btn btn-outline-info" (click)="onDelete(department.departmentID)">Delete</button>
+    <div class="col-6" *ngFor="let department of departments ">
+      <div class="card" *ngIf="department">
+        <p>
+          <b>ID:</b> {{department.departmentID}}
+        </p>
+        <p>
+          <b>Department name: </b> {{department.departmentName }}
+        </p>
+        <p *ngIf="department.locationID">
+          <b>City: </b> {{department.locationID.city }}
+        </p>
+        <button class="btn btn-outline-info" (click)="onDelete(department.departmentID)">Delete</button>
+      </div>
     </div>
   </div>
-  </div>
   <div class="insert">
-    <h5>Insert new Department</h5>
     <form [formGroup]="departmentForm" (ngSubmit)="onInsert()">
+      <h5>Insert new Department</h5>
       <div class="form-group">
         <input formControlName="departmentID" class="form-control" placeholder="Enter ID">
       </div>
       <div class="form-group">
         <input formControlName="departmentName" class="form-control" placeholder="Enter department name">
       </div>
-
       <button type="submit" class="btn btn-outline-primary">Insert</button>
     </form>
+
+    <form [formGroup]="departmentFormID" (ngSubmit)="showDepartmentWithID()">
+      <h5>Find department by ID</h5>
+      <div class="form-group">
+        <input type="text" formControlName="departmentID" class="form-control" placeholder="Enter ID">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Search</button>
+    </form>
+
+    <h3></h3>
+    <div class="row" *ngIf="departmentWithID">
+      <div class="col-12">
+        <div class="card">
+          <b>Id: </b> {{departmentWithID.departmentID }}
+          <b>Department name: </b> {{departmentWithID.departmentName }}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

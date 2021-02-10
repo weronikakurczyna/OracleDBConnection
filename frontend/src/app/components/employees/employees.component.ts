@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from "./employee";
 import {EmployeesService} from "../../services/employees.service";
-import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-employees',
@@ -11,6 +10,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class EmployeesComponent implements OnInit {
 
   employees: Employee[];
+  employeesWithSalaryAndCommissionPCT: Employee[];
+  salary = 15000;
+  commissionPCT = 0.2;
+
 
   // employeeForm = new FormGroup({
   //   employeeID: new FormControl(),
@@ -28,12 +31,20 @@ export class EmployeesComponent implements OnInit {
 
   ngOnInit(): void {
     this.showInfo();
+    this.showSalaryAndCommissionPCTInfo(this.salary,this.commissionPCT);
   }
 
   private showInfo() {
     this.employeesService
       .getEmployees()
       .subscribe((data: Employee[]) => this.employees = data);
+  }
+
+  private showSalaryAndCommissionPCTInfo(salary: number, commissionPCT: number) {
+    this.employeesService
+      .getEmployeesWithSalaryLowerThanAndCommissionPCT(salary, commissionPCT)
+      .subscribe((data: Employee[]) => this.employeesWithSalaryAndCommissionPCT = data);
+      console.log("pobrano");
   }
 
   // onDelete(employeeID: string) {
@@ -46,11 +57,6 @@ export class EmployeesComponent implements OnInit {
   //   this.employeesService.insertEmployee(this.employeeForm.value).subscribe(() => console.log('Employee added'));
   //   //this.refresh();
   // }
-
-  refresh(): void {
-    window.location.reload();
-  }
-
 
 
 }

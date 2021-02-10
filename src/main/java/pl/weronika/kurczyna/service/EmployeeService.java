@@ -29,6 +29,21 @@ public class EmployeeService {
         return convertToDto(employeeRepository.findById(employeeID).get());
     }
 
+    public List<EmployeeDto> getEmployeeBySalaryLowerThanAndCommissionPCT(Integer salary, Double commissionPCT) {
+        List<Employee> employeeWithSalary = employeeRepository.findAllBySalaryLessThanAndCommissionPCTEquals(salary, commissionPCT);
+        return employeeWithSalary
+                .stream()
+                .map(employee -> convertToDto(employee))
+                .collect(Collectors.toList());
+    }
+
+    private EmployeeDto convertToDto(Employee employee) {
+        return modelMapper.map(employee, EmployeeDto.class);
+    }
+}
+
+
+
 //    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
 //        Employee newEmployee = new Employee();
 //        newEmployee.setEmployeeID(employeeDto.getEmployeeID());
@@ -52,9 +67,5 @@ public class EmployeeService {
 //
 //    }
 
-    private EmployeeDto convertToDto(Employee employee) {
-        return modelMapper.map(employee, EmployeeDto.class);
-    }
 
-}
 

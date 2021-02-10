@@ -37,4 +37,5 @@ public class DepartmentController {
         departmentService.deleteDepartment(departmentID);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

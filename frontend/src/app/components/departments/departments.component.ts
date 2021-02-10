@@ -4,6 +4,7 @@ import {CountriesService} from "../../services/countries.service";
 import {Department} from "./department";
 import {DepartmentsService} from "../../services/departments.service";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Employee} from "../employees/employee";
 
 @Component({
   selector: 'app-departments',
@@ -13,9 +14,14 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class DepartmentsComponent implements OnInit {
 
   departments: Department[];
+  departmentWithID: Department;
+
   departmentForm = new FormGroup({
     departmentID: new FormControl(),
     departmentName: new FormControl()
+  });
+  departmentFormID = new FormGroup({
+    departmentID: new FormControl(),
   });
 
   constructor(private departmentsService: DepartmentsService) {
@@ -25,7 +31,18 @@ export class DepartmentsComponent implements OnInit {
     this.showInfo();
   }
 
-  private showInfo() {
+  showDepartmentWithID() {
+    const departmentId = this.departmentFormID.value.departmentID;
+    console.log(departmentId)
+    this.departmentsService
+      .getDepartmentsWithID(departmentId)
+      .subscribe((response: Department) => {
+        this.departmentWithID = response
+      });
+  }
+
+
+  showInfo() {
     this.departmentsService
       .getDepartments()
       .subscribe((data: Department[]) => this.departments = data);
@@ -37,7 +54,6 @@ export class DepartmentsComponent implements OnInit {
         console.log(`Department with ID = ${departmentID} deleted`)
         this.showInfo()
       });
-
   }
 
   onInsert(): void {
@@ -46,7 +62,6 @@ export class DepartmentsComponent implements OnInit {
       this.showInfo()
     });
   }
-
 
 
 }

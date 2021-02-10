@@ -33,7 +33,7 @@ export class CountriesComponent implements OnInit {
   onDelete(countryID: string) {
     this.countriesService.deleteCountry(countryID)
       .subscribe(() => console.log(`Country with ID = ${countryID} deleted`));
-    //this.refresh();
+
   }
 
   onInsert(): void {

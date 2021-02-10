@@ -27,6 +27,23 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.getEmployeeByEmployeeID(employeeID), HttpStatus.OK);
 
     }
+/*
+
+    // /employee ? salaryMaxValue=8000  &commissionPCT=null
+    @GetMapping(path = "/employee/salary-with-null-commission-pct/{salaryValue}")
+    public ResponseEntity<List<EmployeeDto>> getEmployeesWithSalaryLowerThan(@PathVariable(value = "salaryValue") Integer salary, Integer commissionPCT) {
+        return new ResponseEntity<>(employeeService.getEmployeeBySalaryLowerThanAndCommissionPCT(salary, commissionPCT), HttpStatus.OK);
+    }
+
+*/
+
+    @GetMapping(path = "/employeeByParams")
+    public ResponseEntity<List<EmployeeDto>> getEmployeesWithRequestParameters(
+            @RequestParam(value = "maxSalary") Integer maxSalary,
+            @RequestParam(value = "commissionPCT", required = false) Double commissionPCT
+    ) {
+        return new ResponseEntity<>(employeeService.getEmployeeBySalaryLowerThanAndCommissionPCT(maxSalary, commissionPCT), HttpStatus.OK);
+    }
 
 //    @PostMapping("/employees")
 //    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {

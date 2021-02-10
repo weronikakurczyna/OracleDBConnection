@@ -19,7 +19,7 @@
           <b>Phone number: </b> {{employee.phoneNumber }}
         </p>
         <p>
-          <b>Hire date: </b> {{employee.hireDate }}
+          <b>Hire date: </b> {{employee.hireDate | date}}
         </p>
         <p>
           <b>Salary: </b> {{employee.salary }}
@@ -37,6 +37,16 @@
           <b>Job ID: </b> {{employee.jobID.jobID }}
         </p>
         <!--      <button class="btn btn-outline-info" (click)="onDelete(employee.employeeID)">Delete</button>-->
+      </div>
+    </div>
+  </div>
+  <h3>Employees with salary lower than {{salary}} and commission PCT {{commissionPCT}}</h3>
+  <div class="row">
+    <div class="col-6" *ngFor="let employee of employeesWithSalaryAndCommissionPCT ">
+      <div class="card">
+        <b>Id: </b> {{employee.employeeID }}
+        <b>Last name: </b> {{employee.lastName }}
+        <b>Salary: </b> {{employee.salary }}
       </div>
     </div>
   </div>

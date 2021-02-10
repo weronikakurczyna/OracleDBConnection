@@ -9,5 +9,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
 
     List<Employee> findAllByJobId(String Id);
 
+    List<Employee> findAllBySalaryLessThanAndCommissionPCTEquals(Integer salary, Double commissionPCT);
+
 }
 

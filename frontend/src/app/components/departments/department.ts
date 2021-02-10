@@ -1,4 +1,5 @@
 import {Location, LocationInterface} from "../locations/location";
+import {EmployeeInterface} from "../employees/employee";
 
 export interface DepartmentInterface {
   departmentID: string;

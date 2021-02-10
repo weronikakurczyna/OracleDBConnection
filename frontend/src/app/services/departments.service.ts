@@ -19,6 +19,13 @@ export class DepartmentsService {
       .get<DepartmentInterface[]>(this.departmentUrl);
   }
 
+  getDepartmentsWithID(id): Observable<Department> {
+    const newUrl = `${this.departmentUrl2}/${id}`;
+    return this.http
+      .get<DepartmentInterface>(newUrl);
+  }
+
+
   deleteDepartment(id: string): Observable<string> {
     const deleteUrl = `${this.departmentUrl2}/${id}`;
     return this.http.delete<string>(deleteUrl);
