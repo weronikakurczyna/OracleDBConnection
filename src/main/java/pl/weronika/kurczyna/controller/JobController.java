@@ -39,5 +39,13 @@ public class JobController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping(path = "/jobByParams")
+    public ResponseEntity<List<JobDto>> getJobWithRequestParams(
+            @RequestParam(value = "maxSalary") Integer maxSalary,
+            @RequestParam(value = "jobTitle") String jobTitle
+    ) {
+        return new ResponseEntity<>(jobService.getJobByMaxSalaryGreaterThanAndJobTitleLike(maxSalary, jobTitle), HttpStatus.OK);
+    }
+
 }
 

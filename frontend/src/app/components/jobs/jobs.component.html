@@ -37,4 +37,15 @@
       <button type="submit" class="btn btn-outline-primary">Insert</button>
     </form>
   </div>
+  <h3>Jobs with maximum salary greater than {{maxSalary}} and job title containing "{{jobTitle}}" </h3>
+  <div class="row">
+    <div class="col-6" *ngFor="let job of jobsWithMaxSalaryAndJobTitle ">
+      <div class="card">
+        <b>Id: </b> {{job.jobID }}
+        <b>Job title: </b> {{job.jobTitle }}
+        <b>Minimum salary: </b> {{job.minSalary }}
+        <b>Maximum salary: </b> {{job.maxSalary }}
+      </div>
+    </div>
+  </div>
 </div>

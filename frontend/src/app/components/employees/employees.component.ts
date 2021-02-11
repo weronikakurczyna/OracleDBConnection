@@ -44,7 +44,6 @@ export class EmployeesComponent implements OnInit {
     this.employeesService
       .getEmployeesWithSalaryLowerThanAndCommissionPCT(salary, commissionPCT)
       .subscribe((data: Employee[]) => this.employeesWithSalaryAndCommissionPCT = data);
-      console.log("pobrano");
   }
 
   // onDelete(employeeID: string) {

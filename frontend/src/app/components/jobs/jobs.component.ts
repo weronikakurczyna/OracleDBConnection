@@ -4,6 +4,7 @@ import {LocationsService} from "../../services/locations.service";
 import {JobsService} from "../../services/jobs.service";
 import {Job} from "./job";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Employee} from "../employees/employee";
 
 @Component({
   selector: 'app-jobs',
@@ -13,6 +14,9 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class JobsComponent implements OnInit {
 
   jobs: Job[];
+  jobsWithMaxSalaryAndJobTitle: Job[];
+  maxSalary: number = 8000;
+  jobTitle: string = 'Manager';
 
   jobForm = new FormGroup({
     jobID: new FormControl(),
@@ -28,6 +32,7 @@ export class JobsComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => this.showInfo(), 150000);
     this.showInfo();
+    this.showSalaryAndJobTitle(this.maxSalary, this.jobTitle);
   }
 
   private showInfo() {
@@ -35,6 +40,12 @@ export class JobsComponent implements OnInit {
       .getJobs()
       .subscribe((data: Job[]) => this.jobs = data);
     this.jobForm.reset();
+  }
+
+  private showSalaryAndJobTitle(maxSalary: number, jobTitle: string) {
+    this.jobsService
+      .getJobsWithMaxSalaryGreaterThanAndJobTitleContains(maxSalary, jobTitle)
+      .subscribe((data: Job[]) => this.jobsWithMaxSalaryAndJobTitle = data);
   }
 
   onDelete(jobID: string) {

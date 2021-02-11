@@ -27,7 +27,6 @@ export class EmployeesService {
     console.log(commissionPCT)
     console.log(params)
     return this.http.get<EmployeeInterface[]>(this.employeeByParams, {params});
-    //   return this.http.get<EmployeeInterface[]>(this.employeeByParams, {params});
   }
 
   // deleteEmployee(id: string): Observable<string> {

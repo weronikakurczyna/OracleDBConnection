@@ -33,6 +33,14 @@ public class JobService {
         return convertToDto(jobRepository.findById(jobID).get());
     }
 
+    public List<JobDto> getJobByMaxSalaryGreaterThanAndJobTitleLike(Integer salary, String jobTitle) {
+        List<Job> jobWithSalaryAndName = jobRepository.findAllByMaxSalaryGreaterThanAndJobTitleContains(salary, jobTitle);
+        return jobWithSalaryAndName
+                .stream()
+                .map(job -> convertToDto(job))
+                .collect(Collectors.toList());
+    }
+
     public void deleteJob(String jobID) {
         List<Employee> employeesToChangeJob = employeeRepository.findAllByJobId(jobID);
         Job defaultJob = jobRepository.findById("AD_PRES").orElseThrow();
